@@ -34,7 +34,7 @@ $ sudo apt-get install -y mosquitto mosquitto-clients
 
 Suscriberse al tópico "sensores/temperatura/1" desde la consola. La consola quedará tomada a la espera de los mensajes provenientes de este tópico:
 ```sh
-$ mosquitto_sub -t sensores/temperatura/1 
+$ mosquitto_sub -v -t sensores/temperatura/1 
 ```
 
 Logearse desde otra terminal por ssh. Enviar un mensaje al tópico sensores/temperatura/1  en formato "raw". Al enviar el mensaje deberemos ver en la otra terminal como llega el dato enviado:
@@ -49,7 +49,7 @@ $ mosquitto_pub -t sensores/temperatura/1 -m "{temp: 24}"
 
 Cerrar el proceso de la terminal con mosquitto_sub. Volver a suscribirse pero ahora utilizando el comodin "#" para recibir datos de cualquier número de sensor:
 ```sh
-$ mosquitto_sub -t sensores/temperatura/#
+$ mosquitto_sub -v -t sensores/temperatura/#
 ```
 
 Desde la segunda terminal realizar diferentes publicaciones como si fueran distintos números de sensores y demostrar como funciona el "#", por ejemplo:
