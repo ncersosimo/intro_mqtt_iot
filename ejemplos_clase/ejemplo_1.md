@@ -54,5 +54,5 @@ $ mosquitto_sub -v -t sensores/temperatura/#
 
 Desde la segunda terminal realizar diferentes publicaciones como si fueran distintos números de sensores y demostrar como funciona el "#", por ejemplo:
 ```sh
-$ mosquitto_pub -t sensores/temperatura/3 -m "{temp: 24}"
+$ mosquitto_pub -t sensores/temperatura/3 -m "{temp: 25}"
 ```
