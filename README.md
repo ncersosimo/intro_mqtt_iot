@@ -5,7 +5,7 @@ Web: [Inove](http://inove.com.ar)
 
 ---
 
-# Introducción a Python IoT! [Python]
+# Introducción a MQTT IoT! [Python]
 En este repositorio encontrarán los siguientes archivos:
 
 __Ejemplos que el profesor mostrará en clase__\
