@@ -2,6 +2,11 @@
 
 En esta práctica utilizaremos la librería de python "Paho MQTT" para enviar mensajes
 
+Logearse desde VM e instalar pahoo-mqtt para python:
+```sh
+$ python3 -m pip install paho-mqtt
+```
+
 Logearse desde VM y obtener cual es la dirección IP del dispositivo:
 ```sh
 $ ifconfig
