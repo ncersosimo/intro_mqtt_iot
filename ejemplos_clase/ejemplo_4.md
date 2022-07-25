@@ -7,7 +7,7 @@ Logearse desde VM y obtener cual es la dirección IP del dispositivo:
 $ ifconfig
 ```
 
-Abrir el Visual Studio Code y conectarse de forma remota al dispositivo. Trabajaremos sobre la carpeta recientemente creada. Copiar allí el script "controlador.py" disponible en la carpeta de ejemplos de clase.
+Abrir el Visual Studio Code y conectarse de forma remota al dispositivo. Trabajaremos sobre la carpeta recientemente creada para esta clase. Copiar allí el script "controlador.py" disponible en la carpeta de ejemplos de clase.
 
 Desde ssh conectado a la VM, en la carpeta "repos" clonar el repositorio del simulador de drone:
 ```sh
@@ -18,8 +18,7 @@ Topicos que soporta este mock drone emulado:
 |             |          |      | datos ejemplo
 | ----------  | -------- | -----| -----
 |  actuadores | luces    | 1    |  0/1
-|  actuadores | vuelo    |      |  0/1
-|  actuadores | motores  | 1..4 |  0/1
+|  actuadores | volar    |      |  0/1
 
 
 ### 1 - Lanzar el simulador drone emulado
@@ -41,9 +40,6 @@ $ mosquitto_pub -t "actuadores/luces/1" -m 1
 
 Verificar de esta manera el correcto funcionamiento de cada actuador disponible. 
 
-__NOTA:__ Para que los motores funcionen primero debe activar el controlador de vuelo (actuadores/vuelo)
-
-
 ### 3 - Script controlador de actuadores
 Tome el script "controlador.py" el cual viene con una interfaz de usuario por consola que le permitira accionar sobre los distintos actuadores. Deberá agregar a este script lo necesario para que el controlador se conecte por MQTT.
 
@@ -52,10 +48,10 @@ Agregar al script las librerías que necesitaremos de MQTT:
 import paho.mqtt.client as paho
 ```
 
-Crear las siguientes variables globales que utilizaremos como definiciones en el resto del código:
+Utilice las variables de entorno definidas en el archivo ".env" almacenadas dentro de la variable "config"
 ```python
-broker = "localhost"
-port = 1883
+broker = config["BROKER"]
+port = int(config["PORT"])
 ```
 
 Crear la función de "on_connect" que utilizaremos para verificar que nuestro script pude conectarse exitosamente a la aplicación:
