@@ -1,6 +1,8 @@
 import time
 import paho.mqtt.client as paho
 
+# instalar paho con:
+# $ python3 -m pip install paho-mqtt
 
 broker = "localhost"
 port = 1883
