@@ -1,7 +1,7 @@
 import paho.mqtt.client as paho
+from dotenv import dotenv_values
 
-broker = "localhost"
-port = 1883
+config = dotenv_values()
 
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
@@ -10,15 +10,18 @@ def on_connect(client, userdata, flags, rc):
         print(f"Mqtt connection faild, error code={rc}")
 
 
-def controlador(actuador, numero, valor):
-    pass
+def controlador(client, actuador, valor):
+    topico = f"actuadores/{actuador}"
+    if actuador == "luces":
+        topico += "/1"
+    client.publish(topico, valor)
 
 
 if __name__ == "__main__":
 
     client = paho.Client("controlador")
     client.on_connect = on_connect
-    client.connect(broker, port)
+    client.connect(config["BROKER"], int(config["PORT"]))
     client.loop_start()
 
     print("Drone Mock: Sistema controlador de actuadores")
@@ -28,13 +31,8 @@ if __name__ == "__main__":
         if actuador == "fin":
             break
 
-        numero = 0
-        if actuador != "vuelo":
-            numero = int(input("Ingrese el numero de actuador a manipular: "))
-
         valor = int(input("Ingrese el valor que desea enviar: "))
-        controlador(actuador, numero, valor)
-
+        controlador(client, actuador, valor)
 
     client.disconnect()
     client.loop_stop()

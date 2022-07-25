@@ -20,7 +20,7 @@ client.connect(broker, port)
 client.loop_start()
 
 for i in range(40):
-    ret = client.publish(topico, i) 
+    ret = client.publish(topico, i)
     time.sleep(2)
 
 client.disconnect()
