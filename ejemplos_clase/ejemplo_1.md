@@ -44,7 +44,7 @@ $ mosquitto_pub -t sensores/temperatura/1 -m 24
 
 Repetir la experiencia, pero ahora enviado un mensaje en formato JSON:
 ```sh
-$ mosquitto_pub -t sensores/temperatura/1 -m "{temp: 24}"
+$ mosquitto_pub -t sensores/temperatura/1 -m '{"temp": 24}'
 ```
 
 Cerrar el proceso de la terminal con mosquitto_sub. Volver a suscribirse pero ahora utilizando el comodin "#" para recibir datos de cualquier número de sensor:
@@ -54,5 +54,5 @@ $ mosquitto_sub -v -t sensores/temperatura/#
 
 Desde la segunda terminal realizar diferentes publicaciones como si fueran distintos números de sensores y demostrar como funciona el "#", por ejemplo:
 ```sh
-$ mosquitto_pub -t sensores/temperatura/3 -m "{temp: 25}"
+$ mosquitto_pub -t sensores/temperatura/3 -m '{"temp": 24}'
 ```
