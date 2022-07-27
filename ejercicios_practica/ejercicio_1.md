@@ -20,6 +20,7 @@ Topicos que soporta este mock drone emulado:
 |  actuadores | luces    | 1    |  0/1
 |  actuadores | volar    |      |  0/1
 |  actuadores | motores  | 1..4 |  0/1
+|  actuadores | joystick |      |  {"x": 0.8, "y": 0.3}
 
 
 ### 1 - Lanzar el simulador drone emulado
@@ -41,16 +42,21 @@ $ mosquitto_pub -t "actuadores/luces/1" -m 1
 
 Verificar de esta manera el correcto funcionamiento de cada actuador disponible. 
 
-__NOTA:__ Para que los motores funcionen primero debe activar el controlador de vuelo (actuadores/vuelo)
+__NOTA:__ Para que los motores funcionen primero debe activar el controlador de vuelo (actuadores/volar)
 
 
 ### 3 - Script controlador de actuadores
-Deberá modificar el ejemplo de clase para implementar el funcionamiento de los tópicos de motores. Tener en cuenta que el drone soporta cuatro motores distintos, por lo que tendrá que tener en cuenta eso al armar sus tópicos.
+Deberá modificar el ejemplo de clase para implementar el funcionamiento de los tópicos de motores y joystick
+
+Motores:
+- Tener en cuenta que el drone soporta cuatro motores distintos, por lo que tendrá que tener en cuenta eso al armar sus tópicos.
+- Para que los motores funcionen primero debe activar el controlador de vuelo (actuadores/volar)
+
+Joystick:
+- Tener en cuenta que este tópico recibe un JSON String. Debe armar el payload como un JSON/diccionario y pasarlo a JSON String con json.dumps
+- El joytsick soporta para valores de "x" de -1 a 1.
+- El joytsick soporta para valores de "y" de 0 a 1.
 
 Utilice todas las herramientas a su disposición (terminal, MQTTExplorer, debugger) para ensayar y testear el funcionamiento de su implementación. En caso que tenga problemas, consulte y continue explorando. Lo más rico de estos ejercicios es que pueda analizar las fallas y aprender de ellas por su cuenta como todo un buen detective.
 
 Una vez finalizado el ejercicio y corroborado el funcionamiento, subir al repositorio el script de python resuelto de este ejercicio en la carpeta de "ejercicios_practica" con el nombre de "ejercicio_1.py".
-
-__NOTA:__ Para que los motores funcionen primero debe activar el controlador de vuelo (actuadores/vuelo)
-
-
