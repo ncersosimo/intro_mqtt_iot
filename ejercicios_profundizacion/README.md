@@ -7,7 +7,7 @@ Logearse desde VM y obtener cual es la dirección IP del dispositivo:
 $ ifconfig
 ```
 
-Abrir el Visual Studio Code y conectarse de forma remota al dispositivo. Trabajaremos sobre la carpeta recientemente creada para esta clase. Crear un script allí llamado utilizando de base el script "controlador.py" disponible en la carpeta de ejemplos de clase resueltos.
+Abrir el Visual Studio Code y conectarse de forma remota al dispositivo. Trabajaremos sobre la carpeta recientemente creada para esta clase.
 
 Desde ssh conectado a la VM, en la carpeta "repos" clonar el repositorio del simulador de drone:
 ```sh
@@ -20,7 +20,7 @@ Topicos que soporta este mock drone emulado:
 |  actuadores | luces    | 1    |  0/1
 |  actuadores | volar    |      |  0/1
 |  actuadores | motores  | 1..4 |  0/1
-
+|  actuadores | joystick |      |  {"x": 0.8, "y": 0.3}
 
 ### 1 - Lanzar el simulador drone emulado
 Desde ssh conectado a la VM, ingresar a la carpeta clonada del "drone_emulado" y lanzar la aplicación:
@@ -48,13 +48,11 @@ Deberá ver una pantalla como la siguiente:
 
 ![logotipo](sistema.jpg)
 
-### 3 - Script controlador de actuadores
-Deberá modificar el ejemplo de clase para implementar el funcionamiento de los tópicos de motores. Tener en cuenta que el drone soporta cuatro motores distintos, por lo que tendrá que tener en cuenta eso al armar sus tópicos.
+### 3 - Modificar el simulador de actuadores_mock
+Deberá modificar el app.py a fin de implementar las funcionalidades faltantes. Para ello busque en el archivo todos los comentarios referidos a "Alumno". 
+- El objetivo que se desea lograr es que el simulador de "actuadores_mock" se conecte con éxito al simulador "drone_emulado".
+- Cuando utilice los actuadores en el nuevo simulador deberá ver reflejados los cambios en la pantalla del "drone_emulado".
 
 Utilice todas las herramientas a su disposición (terminal, MQTTExplorer, debugger) para ensayar y testear el funcionamiento de su implementación. En caso que tenga problemas, consulte y continue explorando. Lo más rico de estos ejercicios es que pueda analizar las fallas y aprender de ellas por su cuenta como todo un buen detective.
 
-Una vez finalizado el ejercicio y corroborado el funcionamiento, subir al repositorio el script de python resuelto de este ejercicio en la carpeta de "ejercicios_practica" con el nombre de "ejercicio_1.py".
-
-__NOTA:__ Para que los motores funcionen primero debe activar el controlador de vuelo (actuadores/vuelo)
-
-
+Una vez finalizado el ejercicio y corroborado el funcionamiento, subir los cambios realizados en el simulador "actuadores_mock" a su repositorio.
