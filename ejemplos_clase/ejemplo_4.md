@@ -7,6 +7,8 @@ Logearse desde VM y obtener cual es la dirección IP del dispositivo:
 $ ifconfig
 ```
 
+### 1 - Preparar el entorno de trabajo
+
 Abrir el Visual Studio Code y conectarse de forma remota al dispositivo. Trabajaremos sobre la carpeta recientemente creada para esta clase. Copiar allí el script "controlador.py" disponible en la carpeta de ejemplos de clase.
 
 Desde ssh conectado a la VM, en la carpeta "repos" clonar el repositorio del simulador de drone:
@@ -21,7 +23,7 @@ Topicos que soporta este mock drone emulado:
 |  actuadores | volar    |      |  0/1
 
 
-### 1 - Lanzar el simulador drone emulado
+### 2 - Lanzar el simulador drone emulado
 Desde ssh conectado a la VM, ingresar a la carpeta clonada del "drone_emulado" y lanzar la aplicación:
 ```sh
 $ python3 app.py
@@ -32,7 +34,7 @@ Ingresar a su explorador web e ingresar a al aplicación del drone:
 http://<ip_VM>:5009
 ```
 
-### 2 - Ensayar que el simulador funcione
+### 3 - Ensayar que el simulador funcione
 Utilizar MQTTExplorer o mosquitto_pub para enviar mensajes a los tipos disponibles en este simulador, por ejemplo:
 ```sh
 $ mosquitto_pub -t "actuadores/luces/1" -m 1
@@ -40,7 +42,7 @@ $ mosquitto_pub -t "actuadores/luces/1" -m 1
 
 Verificar de esta manera el correcto funcionamiento de cada actuador disponible. 
 
-### 3 - Script controlador de actuadores
+### 4 - Script controlador de actuadores
 Tome el script "controlador.py" el cual viene con una interfaz de usuario por consola que le permitira accionar sobre los distintos actuadores. Deberá agregar a este script lo necesario para que el controlador se conecte por MQTT.
 
 Agregar al script las librerías que necesitaremos de MQTT:

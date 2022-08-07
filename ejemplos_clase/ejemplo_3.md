@@ -12,11 +12,6 @@ Conectarse por ssh desde una terminal del host:
 $ ssh inove@<ip_dispositivo>
 ```
 
-Instalar pahoo-mqtt para python:
-```sh
-$ python3 -m pip install paho-mqtt
-```
-
 Crear la carpeta "clase_2" para trabajar sobre los ejemplos de esta clase:
 ```sh
 $ mkdir clase_2

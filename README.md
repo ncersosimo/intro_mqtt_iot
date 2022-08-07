@@ -6,6 +6,11 @@ Web: [Inove](http://inove.com.ar)
 ---
 
 # Introducción a MQTT IoT! [Python]
+Instalar las dependencias de python para esta clase:
+```sh
+$ python3 -m pip install -r requirements.txt
+```
+
 En este repositorio encontrarán los siguientes archivos:
 
 __Ejemplos que el profesor mostrará en clase__\
