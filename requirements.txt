@@ -9,4 +9,3 @@ paho-mqtt==1.6.1
 Werkzeug==2.2.2
 dnspython==2.2.1
 pyopenssl==22.1.0
-eventlet==0.33.1
